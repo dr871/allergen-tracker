@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <g transform="translate(256,256)">
+    <!-- Shield outline -->
+    <path d="M0-140 C60-140 120-110 140-80 L140 40 C140 100 80 150 0 180 C-80 150 -140 100 -140 40 L-140-80 C-120-110 -60-140 0-140Z" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.9"/>
+    <!-- Checkmark -->
+    <path d="M-45 20 L-15 50 L50-25" fill="none" stroke="#22c55e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
