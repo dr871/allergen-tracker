@@ -46,7 +46,7 @@ export default function AllergenTracker() {
   function logFoodForAll(food, date) {
     if (navigator.vibrate) navigator.vibrate(10);
     const make = () => ({
-      id: crypto.randomUUID(), date, food: food.name,
+      id: self.crypto?.randomUUID?.() ?? (Date.now().toString(36) + Math.random().toString(36).slice(2)), date, food: food.name,
       amount: "", notes: "", foodId: food.id, severity: "none"
     });
     setData(p => {

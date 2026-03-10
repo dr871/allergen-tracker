@@ -10,7 +10,7 @@ export default function FAB({ data, setData, showToast }) {
     setData(p => {
       const newLogs = { ...p.logs };
       const newEntry = {
-        id: crypto.randomUUID(),
+        id: self.crypto?.randomUUID?.() ?? (Date.now().toString(36) + Math.random().toString(36).slice(2)),
         date: entryData.date,
         food: entryData.food,
         amount: entryData.amount,

@@ -22,7 +22,7 @@ export default function FoodsView({ data, setData }) {
     if (!form.name.trim() || !form.allergens.length) return;
     setData(p => {
       const foods = editId ? p.foods.map(f => f.id === editId ? { ...f, name: form.name.trim(), allergens: form.allergens } : f)
-        : [...p.foods, { id: crypto.randomUUID(), name: form.name.trim(), allergens: form.allergens }];
+        : [...p.foods, { id: self.crypto?.randomUUID?.() ?? (Date.now().toString(36) + Math.random().toString(36).slice(2)), name: form.name.trim(), allergens: form.allergens }];
       return { ...p, foods };
     });
     setShowForm(false); setEditId(null); setForm(BLANK_FOOD);
@@ -36,7 +36,7 @@ export default function FoodsView({ data, setData }) {
   }
   function qLog(food) {
     if (navigator.vibrate) navigator.vibrate(10);
-    const make = () => ({ id: crypto.randomUUID(), date: qDate, food: food.name, amount: "", notes: "", foodId: food.id, severity: "none" });
+    const make = () => ({ id: self.crypto?.randomUUID?.() ?? (Date.now().toString(36) + Math.random().toString(36).slice(2)), date: qDate, food: food.name, amount: "", notes: "", foodId: food.id, severity: "none" });
     setData(p => {
       const logs = { ...p.logs };
       food.allergens.forEach(aId => { logs[aId] = [...(logs[aId] || []), make()].sort((a, b) => a.date.localeCompare(b.date)); });

@@ -34,7 +34,7 @@ export default function DetailView({ allergenId, data, setData, onBack, onOpenIn
   function submit() {
     if (!logForm.date) return;
     if (navigator.vibrate) navigator.vibrate(10);
-    const e = { id: crypto.randomUUID(), date: logForm.date, food: logForm.food.trim(), amount: logForm.amount.trim(),
+    const e = { id: self.crypto?.randomUUID?.() ?? (Date.now().toString(36) + Math.random().toString(36).slice(2)), date: logForm.date, food: logForm.food.trim(), amount: logForm.amount.trim(),
       notes: logForm.notes.trim(), foodId: logForm.foodId ?? null, severity: logForm.severity || "none" };
     setData(p => ({ ...p, logs: { ...p.logs, [allergenId]: [...(p.logs[allergenId] || []), e].sort((a, b) => a.date.localeCompare(b.date)) } }));
     setLogForm(BLANK_LOG); setShowLog(false); setShowOptional(false);
